@@ -11,6 +11,13 @@ public class MyPlayer {
          * This code will run just once, when the game opens.
          * Add your code here.
          */
+
+
+    }
+
+    public void myPlayerClicked (){
+
+
     }
 
     public Point move(Chip[][] pBoard) {
@@ -24,11 +31,24 @@ public class MyPlayer {
         row = 1;
         column = 1;
 
+        // add code to fill in the column array
+        // so that it represents the gameBoard in number form
+        // print columns array to show its working
+
+        System.out.println("MY PLAYER CLICKED");
+
         /***
          * This code will run each time the "MyPlayer" button is pressed.
          * Add your code to return the row and the column of the chip you want to take.
          * You'll be returning a data type called Point which consists of two integers.
          */
+        for (int c = 0; c < columns.length; c++ ){
+            for (int r = 0; r < gameBoard.length; r++)
+            if (gameBoard[c][r].isAlive == true){
+               columns[c] = columns[c] + 1;
+
+            }
+        }
 
         Point myMove = new Point(row, column);
         return myMove;
