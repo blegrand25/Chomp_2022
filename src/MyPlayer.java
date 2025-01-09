@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.util.Arrays;
 
 public class MyPlayer {
     public Chip[][] gameBoard;
@@ -6,6 +7,7 @@ public class MyPlayer {
 
     public MyPlayer() {
         columns = new int[10];
+        print3x3boards();
 
         /***
          * This code will run just once, when the game opens.
@@ -31,9 +33,7 @@ public class MyPlayer {
         row = 1;
         column = 1;
 
-        // add code to fill in the column array
-        // so that it represents the gameBoard in number form
-        // print columns array to show its working
+
 
         System.out.println("MY PLAYER CLICKED");
 
@@ -42,16 +42,43 @@ public class MyPlayer {
          * Add your code to return the row and the column of the chip you want to take.
          * You'll be returning a data type called Point which consists of two integers.
          */
-        for (int c = 0; c < columns.length; c++ ){
-            for (int r = 0; r < gameBoard.length; r++)
-            if (gameBoard[c][r].isAlive == true){
-               columns[c] = columns[c] + 1;
 
+        // add code to fill in the column array
+        // so that it represents the gameBoard in number form
+        // print columns array to show its working
+
+        for (int c = 0; c < columns.length; c++ ) {
+            int count = 0;
+            for (int r = 0; r < gameBoard.length; r++) {
+                if (gameBoard[r][c].isAlive == true) {
+                    count++;
+                }
             }
+            columns[c] = count;
         }
+        System.out.println(Arrays.toString(columns));
+
+
+        // check if we're right
+        // print columns array
+
 
         Point myMove = new Point(row, column);
         return myMove;
     }
+
+    public void print3x3boards(){
+// print all possible 3x3 board states using 1 or more for loop
+        for(int s = 1; s <=3 ; s++) {
+           for(int j = 0; j <=3; j++) {
+               for (int z = 0; z <=3; z++){
+                   System.out.println(s + " "+ j + " " + z);
+
+               }
+           }
+            System.out.println();
+        }
+
+    }// use if statement to print only possible boards
 
 }
