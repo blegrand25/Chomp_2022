@@ -7,7 +7,9 @@ public class MyPlayer {
 
     public MyPlayer() {
         columns = new int[10];
-        print3x3boards();
+//        print3x3boards();
+        oneMoveAway(3,3,3);
+
 
         /***
          * This code will run just once, when the game opens.
@@ -58,11 +60,6 @@ public class MyPlayer {
         }
         System.out.println(Arrays.toString(columns));
 
-
-        // check if we're right
-        // print columns array
-
-
         Point myMove = new Point(row, column);
         return myMove;
     }
@@ -72,13 +69,31 @@ public class MyPlayer {
         for(int s = 1; s <=3 ; s++) {
            for(int j = 0; j <=3; j++) {
                for (int z = 0; z <=3; z++){
-                   System.out.println(s + " "+ j + " " + z);
+                   if (s >= j && j >= z) {
+                       System.out.println(s + " " + j + " " + z);
+                       //oneMoveAway(s, j, z);
+                   }
 
                }
            }
             System.out.println();
         }
 
-    }// use if statement to print only possible boards
+    }
+
+    public void oneMoveAway(int s, int j, int z) {// for each possible board print all boards that results from a single move
+
+
+        if (a < j) {
+            for (int a = 3; a <= 3; a--) {
+                System.out.println(s + " " + j + " " + z);
+            }
+        }
+        // System.out.println("one move away from " + s + " " + j + " " + z);
+
+
+
+
+    }
 
 }
